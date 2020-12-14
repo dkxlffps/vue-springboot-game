@@ -39,6 +39,11 @@ const account = {
         .then(response => {
           return response || state;
         })
+    },
+    [ACCOUNT.COOKIE_CHECK]: function({commit}) {
+      let data = cookie.getCookie(COOKIE.USER);
+      if(data)
+        commit(ACCOUNT.LOGIN, data.id);
     }
   },
 }

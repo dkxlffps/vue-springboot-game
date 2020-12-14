@@ -10,10 +10,10 @@
 </template>
 
 <script>
-// @ is an alias to /src
-// import axios from "axios";
 import TextBox from 'View/TextBox.vue';
 import Login from 'View/Login.vue';
+
+import { ACCOUNT } from 'Constant/index';
 
 export default {
   name: "Home",
@@ -27,6 +27,7 @@ export default {
     'login': Login,
   },
   created() {
+    this.$store.dispatch(ACCOUNT.COOKIE_CHECK);
   }
 };
 </script>

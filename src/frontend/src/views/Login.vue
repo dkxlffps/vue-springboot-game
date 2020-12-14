@@ -23,6 +23,12 @@ export default {
   methods: {
     formChange() {
       this.createForm = !this.createForm;
+      this.form = {
+        name:'',
+        account_id:'',
+        account_pw:'',
+        passwordConfirm:''
+      }
     },
     Action() {
       if(!this.validation()) return;
