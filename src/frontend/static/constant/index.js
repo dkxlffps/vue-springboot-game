@@ -4,6 +4,11 @@ export const ACCOUNT = {
   COOKIE_CHECK: 'account/cookieCheck'
 }
 
+export const ITEM = {
+  CREATE_ITEM: 'item/createItem',
+  CREATE_SET_ITEM: 'item/createSetItem'
+}
+
 export const COOKIE = {
   USER: 'cookie/user',
 }

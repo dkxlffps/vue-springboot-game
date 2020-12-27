@@ -1,0 +1,19 @@
+.adminContainer .adminWrap {
+  width: 1200px;
+  height: 800px;
+  background-color: #7a8492;
+  position: absolute;
+  left: 15%;
+  top: 5%;
+}
+
+.adminContainer .adminLeftMenu {
+  width: 200px;
+  height: 800px;
+  margin-top: 100px;
+  margin-left: 30px;
+}
+
+.CreateItemWrap .createFormSelect {
+  margin-top: 20px;
+}

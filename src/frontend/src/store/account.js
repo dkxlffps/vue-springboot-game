@@ -28,9 +28,9 @@ const account = {
             return
           }
           if(payload.isCookie)
-            cookie.setCookie(COOKIE.USER , response.data, 1);
+            cookie.setCookie(COOKIE.USER , JSON.stringify(response.data), 1);
 
-          commit(ACCOUNT.LOGIN, response.id)
+          commit(ACCOUNT.LOGIN, response.data.id)
         })
     },
     [ACCOUNT.SIGN_UP]: function({state},payload) {
@@ -41,7 +41,7 @@ const account = {
         })
     },
     [ACCOUNT.COOKIE_CHECK]: function({commit}) {
-      let data = cookie.getCookie(COOKIE.USER);
+      let data = JSON.parse(cookie.getCookie(COOKIE.USER));
       if(data)
         commit(ACCOUNT.LOGIN, data.id);
     }

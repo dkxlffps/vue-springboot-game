@@ -8,4 +8,5 @@ public interface AccountDao {
 
     public void insertAccount(AccountVO vo);
     public AccountVO selectAccount(AccountVO vo);
+
 }
