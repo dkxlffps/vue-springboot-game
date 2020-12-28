@@ -9,6 +9,10 @@ export const ITEM = {
   CREATE_SET_ITEM: 'item/createSetItem'
 }
 
+export const COMMON = {
+  GET_COMMON_CODE: 'common/getCommonCode' 
+}
+
 export const COOKIE = {
   USER: 'cookie/user',
 }
