@@ -10,7 +10,9 @@ export const ITEM = {
 }
 
 export const COMMON = {
-  GET_COMMON_CODE: 'common/getCommonCode' 
+  GET_COMMON_CODE: 'common/getCommonCode',
+  equipTypes: 'common/equipTypes',
+  itemTypes: 'common/itemTypes',
 }
 
 export const COOKIE = {

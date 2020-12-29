@@ -34,20 +34,16 @@ import { COMMON } from 'Constant/index';
 
 export default {
   name: 'itemCreate',
+  computed: {
+    equipOptions: () => this.$store.getters.$get_equip_type,
+    itemOptions: () => this.$store.getters.$get_item_type
+  },
   watch: {
-    async createForm(form) {
-      let param;
-      switch(form) {
-        case 'EQUIP':
-          param = { category: form, type: 'TYPE' }
-          this.equipOptions = await this.$store.dispatch(COMMON.GET_COMMON_CODE,param);
-          break;
-        case 'ITEM' :
-          param = {category : form , type: 'USED'};
-          this.itemOptions = await this.$store.dispatch(COMMON.GET_COMMON_CODE,param);
-          break;
-      }
-      
+    createForm(form) {
+      if(form == 'EQUIP' && this.equipOptions.length > 0) return;
+      if(form == 'ITEM' && this.itemOptions.length > 0) return;
+      let param = {category: form, type: 'TYPE'};
+      this.$store.dispatch(COMMON.GET_COMMON_CODE,param);
     }
   },
   created() {

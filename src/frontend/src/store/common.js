@@ -6,17 +6,22 @@ const RootApi = '/api/common';
 
 const common = {
   state: {
-    commonCode: [],
+    equipTypes: [],
+    itemTypes: [],
   },
   getters: {
-    $get_common_code: (state) => {
-      return state.commonCode;
-    }
+    // EQUIP
+    $get_equip_type: (state) => state.equipTypes,
+
+    // ITEM
+    $get_item_type: (state) => state.itemTypes,
   },
   mutations: {
-    [COMMON.GET_COMMON_CODE]: (state, payload) => {
-      state.commonCode = payload;
-    }
+    // EQUIP
+    [COMMON.equipTypes]: (state,payload) => state.equipTypes = payload,
+    
+    // ITEM
+    [COMMON.itemTypes]: (state,payload) => state.itemTypes = payload,
   },
   actions: {
     [COMMON.GET_COMMON_CODE]: function({commit}, payload) {
@@ -28,7 +33,21 @@ const common = {
           delete obj.common_NM;
           delete obj.common_VALUE;
         }
-        commit(COMMON.GET_COMMON_CODE ,response.data);
+        let COMMIT_MUTATIONS;
+        
+        switch(`${payload.category}|${payload.type}`) {
+          // EQUIP
+          case 'EQUIP|TYPE':
+            COMMIT_MUTATIONS = COMMON.equipTypes;
+            break;
+          
+          // ITEM
+          case 'ITEM|TYPE':
+            COMMIT_MUTATIONS = COMMON.itemTypes;
+            break;
+        }
+
+        commit(COMMIT_MUTATIONS,response.data);
         return response.data;
       })
     }
