@@ -35,8 +35,8 @@ import { COMMON } from 'Constant/index';
 export default {
   name: 'itemCreate',
   computed: {
-    equipOptions: () => this.$store.getters.$get_equip_type,
-    itemOptions: () => this.$store.getters.$get_item_type
+    equipOptions: function() {return this.$store.getters.$get_equip_type},
+    itemOptions: function() {return this.$store.getters.$get_item_type}
   },
   watch: {
     createForm(form) {
@@ -56,8 +56,6 @@ export default {
         { text: '아이템', value: 'ITEM'},
         { text: '장비', value:'EQUIP'}
       ],
-      equipOptions: [],
-      itemOptions: []
     }
   }
 }
