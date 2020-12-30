@@ -1,3 +1,5 @@
+import { SEPARETER } from 'Constant/index';
+
 export function empty(_data) {
   if (_data === null) return true 
   if (typeof _data === 'undefined') return true 
@@ -25,4 +27,22 @@ export function emptyObject(_obj , isLog) {
     }
   });
   return result;
+}
+
+
+export function strOptionToObject(_option) {
+  return _option.split(SEPARETER.OPTION).reduce((acc,obj) => {
+    let keyValue = obj.split(SEPARETER.KEY_VALUE);
+    acc[keyValue[0]] = keyValue[1];
+    return acc;
+  }, {});
+}
+
+export function objectOptionToStr(_option) {
+  let str = '';
+  Object.keys(_option).forEach(key => {
+    if(str != '') str += SEPARETER.OPTION;
+    str += `${key}${SEPARETER.KEY_VALUE}${_option[key]}`;
+  });
+  return str;
 }

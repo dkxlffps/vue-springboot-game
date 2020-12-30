@@ -18,3 +18,8 @@ export const COMMON = {
 export const COOKIE = {
   USER: 'cookie/user',
 }
+
+export const SEPARETER = {
+  OPTION: '|',
+  KEY_VALUE: ':'
+}
