@@ -8,6 +8,9 @@ const common = {
   state: {
     equipTypes: [],
     itemTypes: [],
+    commonOptions: {},
+    armorOptions: {},
+    weaponOptions: {}
   },
   getters: {
     // EQUIP
@@ -15,6 +18,11 @@ const common = {
 
     // ITEM
     $get_item_type: (state) => state.itemTypes,
+
+    // OPTIONS
+    $get_common_options: (state) => state.commonOptions,
+    $get_armor_options: (state) => state.armorOptions,
+    $get_weapon_options: (state) => state.weaponOptions,
   },
   mutations: {
     // EQUIP
@@ -22,16 +30,21 @@ const common = {
     
     // ITEM
     [COMMON.itemTypes]: (state,payload) => state.itemTypes = payload,
+
+    // OPTIONS
+    [COMMON.commonOptions]: (state,payload) => state.commonOptions = payload,
+    [COMMON.armorOptions]: (state,payload) => state.armorOptions = payload,
+    [COMMON.weaponOptions]: (state,payload) => state.weaponOptions = payload,
   },
   actions: {
     [COMMON.GET_COMMON_CODE]: function({commit}, payload) {
       let url = RootApi + `/code?category=${payload.category}&type=${payload.type}`;
       return axios.get(url , payload).then(response => {
         for(const obj of response.data) {
-          obj.text = obj.common_NM;
-          obj.value = obj.common_VALUE;
-          delete obj.common_NM;
-          delete obj.common_VALUE;
+          obj.text = obj.common_nm;
+          obj.value = obj.common_value;
+          delete obj.common_nm;
+          delete obj.common_value;
         }
         let COMMIT_MUTATIONS;
         

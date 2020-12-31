@@ -6,7 +6,7 @@
     </b-button-group>
   </div>
   <div class="adminWrap">
-    <item-create v-if="view == 'createItem'"></item-create>
+    <item-create v-show="view == 'createItem'"></item-create>
   </div>
 </div>
 </template>

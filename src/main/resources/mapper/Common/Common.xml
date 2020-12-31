@@ -2,8 +2,17 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
+
+
 <mapper namespace="com.solo.server.common.dao.CommonDao">
-    <select id="GetCommonCode" resultType="CommonCodeVO" parameterType="java.util.Map">
+    <resultMap id="CommonCode" type="CommonCodeVO">
+        <result property="common_value" column="COMMON_VALUE" />
+        <result property="common_nm" column="COMMON_NM" />
+        <result property="common_category" column="COMMON_CATEGORY" />
+        <result property="common_category_item" column="COMMON_CATEGORY_ITEM" />
+    </resultMap>
+
+    <select id="GetCommonCode" resultMap="CommonCode" parameterType="java.util.Map">
         SELECT * FROM COMMON_CODE
         WHERE 1=1
           AND

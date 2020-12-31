@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.solo.server.character.dao.CharacterDao">
+        <resultMap id="Character" type="CharacterVO">
+                <result property="user_id" column="USER_ID" />
+                <result property="ch_id" column="CH_ID" />
+                <result property="ch_name" column="CH_NAME" />
+                <result property="ch_class" column="CH_CLASS" />
+                <result property="ch_level" column="CH_LEVEL" />
+                <result property="ch_cur_exp" column="CH_CUR_EXP" />
+                <result property="created_date" column="CREATED_DATE" />
+                <result property="last_logout_date" column="LAST_LOGOUT_DATE" />
+                <result property="play_time" column="PLAY_TIME" />
+                <result property="user_status" column="USER_STATUS" />
+                <association property="status" resultMap="STATUS">
+        </resultMap>
+        <resultMap id="STATUS" type="CharacterStatusVO">
+                <result property="hp" column="HP" />
+                <result property="mp" column="MP" />
+                <result property="critical" column="CRITICAL" />
+                <result property="phdamage" column="PHDAMAGE" />
+                <result property="abdamage" column="ABDAMAGE" />
+                <result property="phdef" column="PHDEF" />
+                <result property="abdef" column="ABDEF" />
+                <result property="hitrate" column="HITRATE" />
+                <result property="evasionrate" column="EVASIONRATE" />
+                <result property="status_str" column="STATUS_STR" />
+                <result property="status_int" column="STATUS_INT" />
+                <result property="status_dex" column="STATUS_DEX" />
+                <result property="status_luck" column="STATUS_LUCK" />
+                <result property="status_point" column="STATUS_POINT" />
+                <result property="skill_point" column="SKILL_POINT" />
+                <association property="element_def" resultMap="ELEMENT_DEF" />
+                <association property="element_atk" resultMap="ELEMENT_ATK" />
+        </resultMap>
+        <resultMap id="ELEMENT_DEF" type="ElementDefVO">
+                <result property="element_def_water" column="ELEMENT_DEF_WATER" />
+                <result property="element_def_earth" column="ELEMENT_DEF_EARTH" />
+                <result property="element_def_wind" column="ELEMENT_DEF_WIND" />
+                <result property="element_def_fire" column="ELEMENT_DEF_FIRE" />
+        </resultMap>
+        <resultMap id="ELEMENT_ATK" type="ElementAtkVO">
+                <result property="element_atk_water" column="ELEMENT_ATK_WATER" />
+                <result property="element_atk_earth" column="ELEMENT_ATK_EARTH" />
+                <result property="element_atk_wind" column="ELEMENT_ATK_WIND" />
+                <result property="element_atk_fire" column="ELEMENT_ATK_FIRE" />
+        </resultMap>
+
+</mapper>

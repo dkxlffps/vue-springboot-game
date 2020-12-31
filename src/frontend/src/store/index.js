@@ -4,6 +4,7 @@ import Vuex from "vuex";
 import account from 'Store/account';
 import item from 'Store/item';
 import common from 'Store/common';
+import character from 'Store/character';
 
 Vue.use(Vuex);
 
@@ -12,5 +13,6 @@ export default new Vuex.Store({
         account: account,
         item: item,
         common: common,
+        character: character,
     }
 });

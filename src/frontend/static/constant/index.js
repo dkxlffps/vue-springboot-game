@@ -13,6 +13,9 @@ export const COMMON = {
   GET_COMMON_CODE: 'common/getCommonCode',
   equipTypes: 'common/equipTypes',
   itemTypes: 'common/itemTypes',
+  commonOptions: 'common/commonOptions',
+  armorOptions: 'common/armorOptions',
+  weaponOptions: 'common/weaponOptions',
 }
 
 export const COOKIE = {

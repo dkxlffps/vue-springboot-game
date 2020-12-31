@@ -32,11 +32,18 @@
 <script>
 import { COMMON } from 'Constant/index';
 
+import { mapGetters } from 'vuex';
+
 export default {
   name: 'itemCreate',
   computed: {
-    equipOptions: function() {return this.$store.getters.$get_equip_type},
-    itemOptions: function() {return this.$store.getters.$get_item_type}
+    ...mapGetters({
+      equipOptions: '$get_equip_type',
+      itemOptions: '$get_item_type',
+      commonOptions: '$get_common_options',
+      armorOptions: '$get_armor_options',
+      weaponOptions: '$get_weapon_options',
+    }),
   },
   watch: {
     createForm(form) {
@@ -47,7 +54,16 @@ export default {
     }
   },
   created() {
-    
+    //param
+    let commonOptionParam = {category:'OPTION', type: 'COMMON'};
+    let armorOptionParam = {category:'OPTION', type: 'ARMOR'};
+    let weaponOptionParam = {category: 'OPTION',type: 'WEAPON'};
+
+    //Request
+    this.$store.dispatch(COMMON.GET_COMMON_CODE,commonOptionParam);
+    this.$store.dispatch(COMMON.GET_COMMON_CODE,armorOptionParam);
+    this.$store.dispatch(COMMON>GET_COMMON_CODE,weaponOptionParam);
+
   },
   data() {
     return {
