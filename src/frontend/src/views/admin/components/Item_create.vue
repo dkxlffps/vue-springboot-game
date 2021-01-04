@@ -14,6 +14,7 @@
     <div v-if="createForm == 'ITEM'">
       <b-form-radio-group
         id="btn-radios-1"
+        v-model="itemForm"
         :options="itemOptions"
         buttons
         name="radios-btn-default"
@@ -22,10 +23,12 @@
     <div v-if="createForm == 'EQUIP'">
       <b-form-radio-group
         id="btn-radios-1"
+        v-model="equipForm"
         :options="equipOptions"
         buttons
         name="radios-btn-default"
       ></b-form-radio-group>
+      <equip-form :form="equipForm"></equip-form>
     </div>
   </div>
 </template>
@@ -34,15 +37,18 @@ import { COMMON } from 'Constant/index';
 
 import { mapGetters } from 'vuex';
 
+// Sub Component
+import CreateEquip from 'View/admin/components/equip/create_equip.vue';
+
 export default {
   name: 'itemCreate',
+  components: {
+    'equip-form':CreateEquip,
+  },
   computed: {
     ...mapGetters({
       equipOptions: '$get_equip_type',
       itemOptions: '$get_item_type',
-      commonOptions: '$get_common_options',
-      armorOptions: '$get_armor_options',
-      weaponOptions: '$get_weapon_options',
     }),
   },
   watch: {
@@ -68,6 +74,8 @@ export default {
   data() {
     return {
       createForm: '',
+      equipForm: '',
+      itemForm: '',
       createOptions: [
         { text: '아이템', value: 'ITEM'},
         { text: '장비', value:'EQUIP'}

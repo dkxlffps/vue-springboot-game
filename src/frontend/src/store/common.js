@@ -40,11 +40,13 @@ const common = {
     [COMMON.GET_COMMON_CODE]: function({commit}, payload) {
       let url = RootApi + `/code?category=${payload.category}&type=${payload.type}`;
       return axios.get(url , payload).then(response => {
-        for(const obj of response.data) {
-          obj.text = obj.common_nm;
-          obj.value = obj.common_value;
-          delete obj.common_nm;
-          delete obj.common_value;
+        if(payload.isKeyChange) {
+          for(const obj of response.data) {
+            obj.text = obj.common_nm;
+            obj.value = obj.common_value;
+            delete obj.common_nm;
+            delete obj.common_value;
+          }
         }
         let COMMIT_MUTATIONS;
         
@@ -57,6 +59,17 @@ const common = {
           // ITEM
           case 'ITEM|TYPE':
             COMMIT_MUTATIONS = COMMON.itemTypes;
+            break;
+          
+            // OPTION
+          case 'OPTION|COMMON':
+            COMMIT_MUTATIONS = COMMON.commonOptions;
+            break;
+          case 'OPTION|WEAPON':
+            COMMIT_MUTATIONS = COMMON.weaponOptions;
+            break;
+          case 'OPTION|ARMOR':
+            COMMIT_MUTATIONS = COMMON.armorOptions;
             break;
         }
 
