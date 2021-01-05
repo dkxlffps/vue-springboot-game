@@ -16,6 +16,8 @@ export const COMMON = {
   commonOptions: 'common/commonOptions',
   armorOptions: 'common/armorOptions',
   weaponOptions: 'common/weaponOptions',
+  ranks: 'common/ranks',
+  parts: 'common/parts',
 }
 
 export const COOKIE = {
