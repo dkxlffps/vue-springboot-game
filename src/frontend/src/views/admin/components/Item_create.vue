@@ -64,11 +64,15 @@ export default {
     let commonOptionParam = {category:'OPTION', type: 'COMMON'};
     let armorOptionParam = {category:'OPTION', type: 'ARMOR'};
     let weaponOptionParam = {category: 'OPTION',type: 'WEAPON'};
+    let ranksParam = {category: 'ITEM',type: 'RANK'};
+    let partParam = {category: 'EQUIP',type: 'PART'};
 
     //Request
     this.$store.dispatch(COMMON.GET_COMMON_CODE,commonOptionParam);
     this.$store.dispatch(COMMON.GET_COMMON_CODE,armorOptionParam);
-    this.$store.dispatch(COMMON>GET_COMMON_CODE,weaponOptionParam);
+    this.$store.dispatch(COMMON.GET_COMMON_CODE,weaponOptionParam);
+    this.$store.dispatch(COMMON.GET_COMMON_CODE,ranksParam);
+    this.$store.dispatch(COMMON.GET_COMMON_CODE,partParam);
 
   },
   data() {

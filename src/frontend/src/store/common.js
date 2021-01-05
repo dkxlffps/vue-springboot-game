@@ -8,17 +8,19 @@ const common = {
   state: {
     equipTypes: [],
     itemTypes: [],
-    commonOptions: {},
-    armorOptions: {},
-    weaponOptions: {}
+    commonOptions: [],
+    armorOptions: [],
+    weaponOptions: [],
+    ranks: [],
+    parts: [],
   },
   getters: {
     // EQUIP
     $get_equip_type: (state) => state.equipTypes,
-
+    $get_equip_parts: (state) => state.parts,
     // ITEM
     $get_item_type: (state) => state.itemTypes,
-
+    $get_item_ranks: (state) => state.ranks,
     // OPTIONS
     $get_common_options: (state) => state.commonOptions,
     $get_armor_options: (state) => state.armorOptions,
@@ -27,10 +29,11 @@ const common = {
   mutations: {
     // EQUIP
     [COMMON.equipTypes]: (state,payload) => state.equipTypes = payload,
+    [COMMON.parts]: (state,payload) => state.parts = payload,
     
     // ITEM
     [COMMON.itemTypes]: (state,payload) => state.itemTypes = payload,
-
+    [COMMON.ranks]: (state,payload) => state.ranks = payload,
     // OPTIONS
     [COMMON.commonOptions]: (state,payload) => state.commonOptions = payload,
     [COMMON.armorOptions]: (state,payload) => state.armorOptions = payload,
@@ -55,10 +58,16 @@ const common = {
           case 'EQUIP|TYPE':
             COMMIT_MUTATIONS = COMMON.equipTypes;
             break;
+          case 'EQUIP|PARTS':
+            COMMIT_MUTATIONS = COMMON.parts;
+            break;
           
           // ITEM
           case 'ITEM|TYPE':
             COMMIT_MUTATIONS = COMMON.itemTypes;
+            break;
+          case 'ITEM|RANK':
+            COMMIT_MUTATIONS = COMMON.ranks;
             break;
           
             // OPTION
