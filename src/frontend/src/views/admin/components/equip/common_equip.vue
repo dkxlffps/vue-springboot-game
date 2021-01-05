@@ -1,15 +1,24 @@
 <template>
   <div>
-    <b-form-radio-group 
+    <b-form-radio-group
+      style="margin-top: 10px"
+      v-model="commonForm.part"
+      :options="parts" buttons>
+    </b-form-radio-group>
+    <br>
+    <b-form-radio-group
+      style="margin-top: 10px"
       v-model="commonForm.rank" 
       :options="ranks" buttons>
     </b-form-radio-group>
+    <br>
+
   </div>
 </template>
 <script>
 export default {
   name: 'commonEquip',
-  props: ['ranks'],
+  inject: ['form','ranks', 'parts'],
   data() {
     return {
       commonForm: {

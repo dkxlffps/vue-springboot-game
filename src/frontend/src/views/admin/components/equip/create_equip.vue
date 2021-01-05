@@ -1,21 +1,20 @@
 <template>
   <div class="createEquipForm">
     <div v-if="form == 'NORMAL'">
-      <common-equip-form :ranks="ranks" :parts="parts" />
+      <common-equip-form />
     </div>
     <div v-if="form == 'AWAKE'">
-      awake
     </div>
     <div v-if="form == 'SET'">
-      set
+      
     </div>
     <div v-if="form == 'ACC'">
-      acc
+      
     </div>
   </div>
 </template>
 <script>
-import { COMMON } from 'Constant/index';
+// import { COMMON } from 'Constant/index';
 
 import { mapGetters } from 'vuex';
 
@@ -37,6 +36,13 @@ export default {
       ranks: '$get_item_ranks',
       parts: '$get_equip_parts',
     })
+  },
+  provide() {
+    return {
+      form: this.form,
+      ranks: this.ranks,
+      parts: this.parts
+    }
   },
   created() {
 
