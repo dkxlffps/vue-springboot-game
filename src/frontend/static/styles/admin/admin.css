@@ -1,25 +1,49 @@
-.adminContainer .adminWrap {
-  width: 1200px;
-  height: 800px;
-  background-color: #7a8492;
+.adminContainer {
+  transition: all ease-in-out .3s;
+  height: 900px;
+  width: 500px;
+  background-color: black;
+}
+
+.adminContainer .MenuBtn {
+  left:0;
+  top:0;
+  transition-property: left;
+  transition-duration: 0.4s;
   position: absolute;
-  left: 15%;
-  top: 5%;
 }
 
-.adminContainer .adminLeftMenu {
-    left: 0;
-    display: block;
-    position: fixed;
-    top: 50px;
-    bottom: 0;
-    width: 100%;
-    max-width: 250px;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-    overflow-y: auto;
+.adminContainer .MenuBtn.active {
+  left: -200px;
 }
 
-.CreateItemWrap .createFormSelect {
+.sidebarContent {
   margin-top: 20px;
+}
+
+.sidebarContent .title {
+  background-color: #202020;
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+}
+
+.sidebarContent .tabAccordion {
+  transition-duration: .25s;
+  overflow: hidden;
+}
+
+.sidebarContent .tabAccordion .content {
+  padding-left: 1rem !important;
+  padding: 0.5rem;
+  text-align: left;
+  cursor: pointer;
+  transition-duration: .2s;
+}
+
+.sidebarContent .tabAccordion .content.active {
+  background-color: gray;
 }

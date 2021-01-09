@@ -28,3 +28,9 @@ export const SEPARETER = {
   OPTION: '|',
   KEY_VALUE: ':'
 }
+
+export const ADMIN = {
+  SET_ACTIVE_TAB: 'admin/setActiveTab',
+  SELECTED_TAB: 'admin/selectedTab',
+  SELECTED_CONTENT: 'admin/selectedContent',
+}

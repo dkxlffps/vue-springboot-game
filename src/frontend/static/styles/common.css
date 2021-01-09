@@ -29,11 +29,20 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
+a{
+	text-decoration: none;
+	color: white !important;
+}
+a:hover{
+	text-decoration: none;
+	color: white;
+}
 body {
 	line-height: 1;
 }
-ol, ul {
+ol, ul ,dl{
 	list-style: none;
+	margin-bottom: 0 !important;
 }
 blockquote, q {
 	quotes: none;

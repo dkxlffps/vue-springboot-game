@@ -1,32 +1,20 @@
 <template>
-<div class="adminContainer">
-  <div class="adminLeftMenu">
-    <b-button-group vertical>
-      <b-button @click="setView('createItem')">아이템 생성</b-button>
-    </b-button-group>
+  <div class="adminContainer">
+    <side-var />
   </div>
-  <div class="adminWrap">
-    <item-create v-show="view == 'createItem'"></item-create>
-  </div>
-</div>
 </template>
 <script>
-import Item_create from 'View/admin/components/Item_create.vue';
-
+import Sidebar from 'View/admin/Sidebar.vue';
 
 export default {
   name: 'AdminMain',
   components: {
-    'item-create': Item_create,
+    'side-var': Sidebar,
   },
   methods: {
-    setView(name) {
-      this.view = name;
-    },
   },
   data() {
     return {
-      view: '',
     }
   }
 }

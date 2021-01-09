@@ -3,7 +3,12 @@
     <router-view />
   </div>
 </template>
-
+<script>
+import 'Style/common.css';
+export default {
+  name: 'App'
+}
+</script>
 <style>
 #app {
   -webkit-font-smoothing: antialiased;
