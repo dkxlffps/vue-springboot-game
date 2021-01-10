@@ -49,11 +49,6 @@ export default {
     this.adminContainer = document.getElementsByClassName('adminContainer')[0];
     document.getElementsByClassName('bi-x b-icon bi')[0].style.display = 'none'; // closeBtn 숨김
     this.adminContainer.style.marginLeft = this.sideBarWidth;
-
-    setTimeout(() => {
-      this.$store.dispatch(ADMIN.SET_ACTIVE_TAB, {...this.activeTab, isOpen: true,tab:'ITEM',content:'ITEMMODIFY'});
-    }, 3000);
-    
   },
   methods: {
     initMenuList() {

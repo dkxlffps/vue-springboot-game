@@ -1,13 +1,19 @@
 <template>
   <div id="app">
     <router-view />
+    <toast-controller />
   </div>
 </template>
 <script>
-import 'Style/common.css';
+import Toaster from 'Shared/Toaster.vue';
+
 export default {
-  name: 'App'
+  name: 'App',
+  components: {
+    'toast-controller': Toaster,
+  }
 }
+import 'Style/common.css';
 </script>
 <style>
 #app {

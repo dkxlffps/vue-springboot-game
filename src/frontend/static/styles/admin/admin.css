@@ -47,3 +47,16 @@
 .sidebarContent .tabAccordion .content.active {
   background-color: gray;
 }
+
+
+
+/* Toast */
+.b-toast .toast .toast-body.active {
+  cursor: pointer;
+  transition-duration: .25s;
+}
+
+.b-toast .toast .toast-body.active:hover {
+  background-color: #50bcdf;
+  opacity: .8;
+}
