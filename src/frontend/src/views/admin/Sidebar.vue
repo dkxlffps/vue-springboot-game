@@ -4,10 +4,10 @@
       <b-sidebar id="sidebar-variant" title="MENU" bg-variant="dark" text-variant="light" shadow v-model="isOpen">
         <div class="sidebarContent">
           <template v-for="(tab) in menuList">
-            <button :key="tab.tabKey" class="title" :class="{active: activeTab.tab == tab.tabKey}" @click="setTab(tab.tabKey)">{{tab.tabNm}}</button>
+            <button :key="tab.tabKey" class="title" :class="{active: activeTab.tab == tab.tabKey}" @click="setTab(tab)">{{tab.tabNm}}</button>
             <div :key="'accordion'+tab.tabKey" class="tabAccordion" :ref="tab.tabKey">
               <ul>
-                <li v-for="(content) in tab.contents" :key="content.contentKey" class="content" :class="{active: activeTab.content == content.contentKey}" @click="setContent(content.contentKey)">
+                <li v-for="(content) in tab.contents" :key="content.contentKey" class="content" :class="{active: activeTab.content == content.contentKey}" @click="setContent(content)">
                   <a>{{content.contentTitle}}</a>
                 </li>
               </ul>
@@ -28,8 +28,8 @@ export default {
     }
   },
   watch: {
-    activeTab(tab) {
-      this.isOpen = tab.isOpen;
+    activeTab(newTab,oldTab) {
+      this.isOpen = newTab.isOpen;
       this.accordion();
     },
     isOpen(open) {
@@ -66,8 +66,8 @@ export default {
       this.$store.commit(ADMIN.SELECTED_TAB, selectedTab);
       this.accordion()
     },
-    setContent(selectedContent) {
-      this.$store.commit(ADMIN.SELECTED_CONTENT, selectedContent);
+    setContent(content) {
+      this.$store.commit(ADMIN.SELECTED_CONTENT, content);
     },
     accordion() {
       if(!this.isOpen || this.activeTab.tab == '') return;

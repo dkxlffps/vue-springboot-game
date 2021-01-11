@@ -44,26 +44,54 @@ const admin = {
     activeTab: {
       tab: '',
       content: '',
+      title: '',
       isOpen: true,
     },
+    tabContents: [],
+    activeTabContent: {},
+    activeTabIndex: -1,
+    linkData: null,
   },
   getters: {
     $get_menu_list: () => MENU,
     $get_active_tab: (state) => state.activeTab,
+    $get_tab_contents: (state) => state.tabContents,
+    $get_tab_content_index: (state) => state.activeTabIndex,
   },
   mutations: {
     [ADMIN.SET_ACTIVE_TAB]: (state, payload) => state.activeTab = payload,
-    [ADMIN.SELECTED_TAB]: (state, payload) => state.activeTab.tab = payload,
-    [ADMIN.SELECTED_CONTENT]: (state, payload) => state.activeTab.content = payload,
+    [ADMIN.SELECTED_TAB]: (state, payload) => {
+      state.activeTab.tab = payload.tabKey;
+      state.activeTab.title = payload.tabNm;
+    },
+    [ADMIN.SELECTED_CONTENT]: (state, payload) => {
+      state.activeTab.content = payload.contentKey;
+      let index = state.tabContents.findIndex(tab => tab.contentKey == payload.contentKey);
+      if(index == -1) {
+        state.tabContents.push({
+          ...payload,
+        });
+        state.activeTabIndex = state.tabContents.length -1;
+      }
+      else {
+        state.activeTabIndex = index;
+      }
+    },
+    [ADMIN.SET_ACTIVE_TAB_INDEX]: (state,payload) => state.activeTabIndex = payload,
+    [ADMIN.SET_LINK_DATA]: (state,payload) => state.linkData = payload,
+    [ADMIN.DELETE_LINK_DATA]: (state) => state.linkData = null,
   },
   actions: {
-    [ADMIN.SET_ACTIVE_TAB]: function({commit} ,payload) {
+    [ADMIN.SET_ACTIVE_TAB]: function({state, commit} ,payload) {
       if(typeof payload.isOpen == undefined) payload.isOpen = true;
       if(payload.isLog) {
         console.log('%cSet Active Tab','background-color:#808080;color:#8b00ff')
         console.log(`tab : ${payload.tab}\ncontent: ${payload.content}\nisOpen: ${payload.isOpen}`);
       }
       commit(ADMIN.SET_ACTIVE_TAB,{tab:payload.tab,content:payload.content,isOpen:payload.isOpen});
+      if(payload.content != ''){
+        commit(ADMIN.SELECTED_CONTENT, {contentKey: payload.content, contentTitle: payload.title})
+      }
     }
   },
 };

@@ -10,7 +10,8 @@ module.exports = {
                 'Script': path.join(__dirname, 'static/script/'),
                 'Constant': path.join(__dirname, 'static/constant/'),
                 'Store': path.join(__dirname, 'src/store/'),
-                'Shared': path.join(__dirname, 'src/shared/')
+                'Shared': path.join(__dirname, 'src/shared/'),
+                'Assets': path.join(__dirname, 'static/image')
             }
         },
         devtool: 'source-map'

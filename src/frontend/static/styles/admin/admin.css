@@ -1,8 +1,11 @@
 .adminContainer {
   transition: all ease-in-out .3s;
-  height: 900px;
-  width: 500px;
   background-color: black;
+}
+
+.adminContainer .adminContent * {
+  color: #202020 !important;
+  overflow: hidden;
 }
 
 .adminContainer .MenuBtn {
@@ -59,4 +62,9 @@
 .b-toast .toast .toast-body.active:hover {
   background-color: #50bcdf;
   opacity: .8;
+}
+
+/* bootStrap */
+.card-header {
+  padding: .4rem .2rem .0rem .6rem;
 }

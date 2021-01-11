@@ -1,4 +1,4 @@
-import { SEPARETER } from 'Constant/index';
+import { SEPERATER } from 'Constant/index';
 
 export function empty(_data) {
   if (_data === null) return true 
@@ -31,8 +31,8 @@ export function emptyObject(_obj , isLog) {
 
 
 export function strOptionToObject(_option) {
-  return _option.split(SEPARETER.OPTION).reduce((acc,obj) => {
-    let keyValue = obj.split(SEPARETER.KEY_VALUE);
+  return _option.split(SEPERATER.OPTION).reduce((acc,obj) => {
+    let keyValue = obj.split(SEPERATER.KEY_VALUE);
     acc[keyValue[0]] = keyValue[1];
     return acc;
   }, {});
@@ -41,8 +41,8 @@ export function strOptionToObject(_option) {
 export function objectOptionToStr(_option) {
   let str = '';
   Object.keys(_option).forEach(key => {
-    if(str != '') str += SEPARETER.OPTION;
-    str += `${key}${SEPARETER.KEY_VALUE}${_option[key]}`;
+    if(str != '') str += SEPERATER.OPTION;
+    str += `${key}${SEPERATER.KEY_VALUE}${_option[key]}`;
   });
   return str;
 }

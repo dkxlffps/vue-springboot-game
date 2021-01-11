@@ -24,15 +24,19 @@ export const COOKIE = {
   USER: 'cookie/user',
 }
 
-export const SEPARETER = {
+export const SEPERATER = {
   OPTION: '|',
-  KEY_VALUE: ':'
+  KEY_VALUE: ':',
+  TOAST_DESTINATION: '^'
 }
 
 export const ADMIN = {
   SET_ACTIVE_TAB: 'admin/setActiveTab',
   SELECTED_TAB: 'admin/selectedTab',
   SELECTED_CONTENT: 'admin/selectedContent',
+  SET_ACTIVE_TAB_INDEX: 'admin/setActiveTabIndex',
+  SET_LINK_DATA: 'admin/setLinkData',
+  DELETE_LINK_DATA: 'admin/deleteLinkData',
   MENU: {
     FORM: {
       ITEM: 'ITEM',

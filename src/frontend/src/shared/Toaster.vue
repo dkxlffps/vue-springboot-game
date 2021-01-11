@@ -3,6 +3,8 @@
   </div>
 </template>
 <script>
+import { ADMIN , SEPERATER} from 'Constant/index';
+
 export default {
   name: 'Toaster',
   created() {
@@ -19,7 +21,7 @@ export default {
      * 
      */
     showToaster(_toast) {
-      let delay = 5000;
+      let delay = 10000;
       let isEvent = _toast.hasOwnProperty('destination') && _toast.destination != '';
       let index = this.totalCnt;
       let toast = this.$bvToast.toast(_toast.content, {
@@ -32,13 +34,22 @@ export default {
       });
       if(isEvent) {
         setTimeout(() => {
-          this.$(`.active.index${index}`)[0].addEventListener('click',() => this.goDestination(_toast.destination));
+          this.$(`.active.index${index}`)[0].addEventListener('click',() => this.goDestination(_toast.destination,_toast.data));
         }, 100);
       }
       this.totalCnt ++;
     },
-    goDestination(destination) {
-      console.log(destination)
+    goDestination(destination, data) {
+      // this.$store.commit(ADMIN.SET_LINK_DATA, data);
+      
+      let _destination = destination.split(SEPERATER.TOAST_DESTINATION);
+      this.$store.dispatch(ADMIN.SET_ACTIVE_TAB, {
+        isOpen: true,
+        isLog: true,
+        tab: _destination[0],
+        content: _destination[1],
+        title: _destination[2]
+      });
     }
   },
   data() {
