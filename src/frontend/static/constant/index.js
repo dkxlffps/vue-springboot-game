@@ -33,4 +33,20 @@ export const ADMIN = {
   SET_ACTIVE_TAB: 'admin/setActiveTab',
   SELECTED_TAB: 'admin/selectedTab',
   SELECTED_CONTENT: 'admin/selectedContent',
-}
+  MENU: {
+    FORM: {
+      ITEM: 'ITEM',
+      ACCOUNT: 'ACCOUNT'
+    },
+    ITEM: {
+      CREATE: 'ITEM|CREATE',
+      MODIFY: 'ITEM|MODIFY',
+      EQUIP_CREATE: 'ITEM|EQUIP_CREATE',
+      EQUIP_MODIFY: 'ITEM|EQUIP_MODIFY'
+    },
+    ACCOUNT: {
+      LIST: 'ACCOUNT|LIST',
+      MODIFY: 'ACCOUNT|MODIFY'
+    }
+  }
+};

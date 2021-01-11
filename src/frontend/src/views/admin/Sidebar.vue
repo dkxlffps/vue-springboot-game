@@ -52,58 +52,7 @@ export default {
   },
   methods: {
     initMenuList() {
-      this.menuList = [
-        {
-          tabKey: 'ITEM',
-          tabNm: '아이템 관리',
-          contents: [
-            {
-              contentKey: 'ITEMCREATE',
-              contentTitle: '아이템 생성',
-            },
-            {
-              contentKey: 'ITEMMODIFY',
-              contentTitle: '아이템 수정'
-            },
-            {
-              contentKey: 'EQUIPCREATE',
-              contentTitle: '장비 생성'
-            },
-            {
-              contentKey: 'EQUIPMODIFY',
-              contentTitle: '장비 수정'
-            },
-          ]
-        },
-        {
-          tabKey: 'ACCOUNT',
-          tabNm: '계정 관리',
-          contents: [
-            {
-              contentKey: 'ACCOUNTLIST',
-              contentTitle: '계정 조회',
-            },
-            {
-              contentKey: 'ACCOUNTMODIFY',
-              contentTitle: '계정 수정',
-            }
-          ]
-        },
-        {
-          tabKey: 'TEST',
-          tabNm: 'TESTCONTENT',
-          contents: [
-            {
-              contentKey: 'TESTLIST',
-              contentTitle: '테스트 조회',
-            },
-            {
-              contentKey: 'TESTMODIFY',
-              contentTitle: '테스트 수정',
-            }
-          ]
-        },
-      ]
+      this.menuList = this.$store.getters.$get_menu_list;
     },
     initAccordion() {
       document.getElementsByClassName('tabAccordion').forEach(accordion => {
