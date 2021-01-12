@@ -7,7 +7,7 @@
             <button :key="tab.tabKey" class="title" :class="{active: activeTab.tab == tab.tabKey}" @click="setTab(tab)">{{tab.tabNm}}</button>
             <div :key="'accordion'+tab.tabKey" class="tabAccordion" :ref="tab.tabKey">
               <ul>
-                <li v-for="(content) in tab.contents" :key="content.contentKey" class="content" :class="{active: activeTab.content == content.contentKey}" @click="setContent(content)">
+                <li v-for="(content) in tab.contents" :key="content.contentKey" class="content" :class="{active: activeTab.content == content.contentKey}" @click="setContent(content,tab)">
                   <a>{{content.contentTitle}}</a>
                 </li>
               </ul>
@@ -70,8 +70,8 @@ export default {
       this.$store.commit(ADMIN.SELECTED_TAB, selectedTab);
       this.accordion()
     },
-    setContent(content) {
-      this.$store.commit(ADMIN.SELECTED_CONTENT, content);
+    setContent(content,tab) {
+      this.$store.commit(ADMIN.SELECTED_CONTENT, {...content,tabKey: tab.tabKey});
     },
     accordion() {
       if(!this.isOpen || this.activeTab.tab == '') return;

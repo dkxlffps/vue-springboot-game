@@ -78,7 +78,17 @@ const admin = {
         state.activeTabIndex = index;
       }
     },
-    [ADMIN.SET_ACTIVE_TAB_INDEX]: (state,payload) => state.activeTabIndex = payload,
+    [ADMIN.SET_ACTIVE_TAB_INDEX]: (state,payload) => {
+      state.activeTabIndex = payload;
+      let selecteTab = state.tabContents[payload];
+      state.activeTab = {
+        tab: selecteTab.tabKey,
+        content: selecteTab.contentKey,
+        title: selecteTab.contentTitle,
+        isOpen: true,
+        isLink: true
+      }
+    },
     [ADMIN.SET_LINK_DATA]: (state,payload) => state.linkData = payload,
     [ADMIN.DELETE_LINK_DATA]: (state) => state.linkData = null,
     [ADMIN.SET_ISLINK]:(state,payload) => state.activeTab.isLink = payload,
@@ -95,7 +105,7 @@ const admin = {
       
       commit(ADMIN.SET_ACTIVE_TAB,payload);
       if(payload.content != ''){
-        commit(ADMIN.SELECTED_CONTENT, {contentKey: payload.content, contentTitle: payload.title})
+        commit(ADMIN.SELECTED_CONTENT, {contentKey: payload.content, contentTitle: payload.title, tabKey: payload.tab})
       }
     }
   },

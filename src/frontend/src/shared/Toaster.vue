@@ -17,8 +17,8 @@ export default {
      * String title
      * String content
      * String variant @Toast Show Type [secondary | info | danger]
-     * String destination @ content click시 목적지
-     * 
+     * String destination @ content click시 목적지 ex) '{tab}^{content}^{title}'
+     * Object data link이동시 전달 데이터 store 보관
      */
     showToaster(_toast) {
       let delay = 10000;
@@ -40,7 +40,7 @@ export default {
       this.totalCnt ++;
     },
     goDestination(destination, data) {
-      // this.$store.commit(ADMIN.SET_LINK_DATA, data);
+      this.$store.commit(ADMIN.SET_LINK_DATA, data);
       
       let _destination = destination.split(SEPERATER.TOAST_DESTINATION);
       this.$store.dispatch(ADMIN.SET_ACTIVE_TAB, {
