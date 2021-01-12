@@ -46,6 +46,7 @@ export default {
       this.$store.dispatch(ADMIN.SET_ACTIVE_TAB, {
         isOpen: true,
         isLog: true,
+        isLink: true,
         tab: _destination[0],
         content: _destination[1],
         title: _destination[2]

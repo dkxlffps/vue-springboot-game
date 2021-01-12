@@ -37,6 +37,7 @@ export const ADMIN = {
   SET_ACTIVE_TAB_INDEX: 'admin/setActiveTabIndex',
   SET_LINK_DATA: 'admin/setLinkData',
   DELETE_LINK_DATA: 'admin/deleteLinkData',
+  SET_ISLINK: 'admin/setIsLink',
   MENU: {
     FORM: {
       ITEM: 'ITEM',

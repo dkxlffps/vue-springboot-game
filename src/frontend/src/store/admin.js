@@ -46,6 +46,7 @@ const admin = {
       content: '',
       title: '',
       isOpen: true,
+      isLink: false
     },
     tabContents: [],
     activeTabContent: {},
@@ -80,20 +81,23 @@ const admin = {
     [ADMIN.SET_ACTIVE_TAB_INDEX]: (state,payload) => state.activeTabIndex = payload,
     [ADMIN.SET_LINK_DATA]: (state,payload) => state.linkData = payload,
     [ADMIN.DELETE_LINK_DATA]: (state) => state.linkData = null,
+    [ADMIN.SET_ISLINK]:(state,payload) => state.activeTab.isLink = payload,
   },
   actions: {
     [ADMIN.SET_ACTIVE_TAB]: function({state, commit} ,payload) {
       if(typeof payload.isOpen == undefined) payload.isOpen = true;
       if(payload.isLog) {
         console.log('%cSet Active Tab','background-color:#808080;color:#8b00ff')
-        console.log(`tab : ${payload.tab}\ncontent: ${payload.content}\nisOpen: ${payload.isOpen}`);
+        console.log(`tab : ${payload.tab}\ncontent: ${payload.content}\nisOpen: ${payload.isOpen}\nisLink: ${payload.isLink}`);
       }
-      commit(ADMIN.SET_ACTIVE_TAB,{tab:payload.tab,content:payload.content,isOpen:payload.isOpen});
+
+      delete payload.isLog;
+      
+      commit(ADMIN.SET_ACTIVE_TAB,payload);
       if(payload.content != ''){
         commit(ADMIN.SELECTED_CONTENT, {contentKey: payload.content, contentTitle: payload.title})
       }
     }
   },
-};
-
+};0
 export default admin;

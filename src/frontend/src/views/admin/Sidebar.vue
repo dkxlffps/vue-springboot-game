@@ -30,6 +30,10 @@ export default {
   watch: {
     activeTab(newTab,oldTab) {
       this.isOpen = newTab.isOpen;
+      if(newTab.isLink && oldTab.tab != '' && newTab.tab == oldTab.tab) {
+        this.$store.commit(ADMIN.SET_ISLINK, false);
+        return;
+      }
       this.accordion();
     },
     isOpen(open) {
