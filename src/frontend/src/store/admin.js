@@ -49,7 +49,6 @@ const admin = {
       isLink: false
     },
     tabContents: [],
-    activeTabContent: {},
     activeTabIndex: -1,
     linkData: null,
   },
@@ -79,6 +78,7 @@ const admin = {
       }
     },
     [ADMIN.SET_ACTIVE_TAB_INDEX]: (state,payload) => {
+      if(payload == -1) return; // 홍일 경우
       state.activeTabIndex = payload;
       let selecteTab = state.tabContents[payload];
       state.activeTab = {
@@ -92,6 +92,42 @@ const admin = {
     [ADMIN.SET_LINK_DATA]: (state,payload) => state.linkData = payload,
     [ADMIN.DELETE_LINK_DATA]: (state) => state.linkData = null,
     [ADMIN.SET_ISLINK]:(state,payload) => state.activeTab.isLink = payload,
+    [ADMIN.DELETE_TAB]: (state,payload) => {
+      let index = state.tabContents.findIndex(x => x.contentKey == payload);
+      let target;
+      console.log(index, state.tabContents.length)
+      if(state.tabContents.length == 1) { // 삭제후 홈만 남을 경우
+        state.activeTab = {
+          tab: '',
+          content: '',
+          title: '',
+          isOpen: true,
+          isLink: false
+        };
+        state.activeTabIndex = -1;
+      }else if(index == state.tabContents.length - 1) {
+        target = state.tabContents[index-1];
+        state.activeTab = {
+          tab: target.tabKey,
+          content: target.contentKey,
+          title: target.contentTitle,
+          isOpen: true,
+          isLink: true
+        };
+        state.activeTabIndex = index - 1;
+      }else if(index < state.tabContents.length) {
+        target = state.tabContents[index+1];
+        state.activeTab = {
+          tab: target.tabKey,
+          content: target.contentKey,
+          title: target.contentTitle,
+          isOpen: true,
+          isLink: true
+        };
+        state.activeTabIndex = index;
+      }
+      state.tabContents.splice(index, 1);
+    }
   },
   actions: {
     [ADMIN.SET_ACTIVE_TAB]: function({state, commit} ,payload) {

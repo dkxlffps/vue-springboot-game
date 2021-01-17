@@ -68,3 +68,24 @@
 .card-header {
   padding: .4rem .2rem .0rem .6rem;
 }
+
+a.closeBtn {
+  margin-left: 4px;
+  padding: .1rem .35rem .2rem .35rem;
+}
+
+a.closeBtn:hover {
+  background-color: gray;
+  border-radius: 50%;
+  text-decoration: none;
+}
+
+.nav-link {
+  display: block;
+  padding: .5rem .3rem .5rem .5rem !important;
+}
+
+.nav-tabs li:first-child a {
+  padding-right: 1rem !important;
+  transition-duration: .2s;
+}

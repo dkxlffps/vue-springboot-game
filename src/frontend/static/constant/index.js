@@ -38,6 +38,7 @@ export const ADMIN = {
   SET_LINK_DATA: 'admin/setLinkData',
   DELETE_LINK_DATA: 'admin/deleteLinkData',
   SET_ISLINK: 'admin/setIsLink',
+  DELETE_TAB: 'admin/deleteTab',
   MENU: {
     FORM: {
       ITEM: 'ITEM',
