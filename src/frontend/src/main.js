@@ -4,6 +4,7 @@ import router from "./router";
 import store from "./store";
 
 import $ from 'jquery';
+import prop from '../static/prop/properties';
 
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
@@ -23,6 +24,11 @@ Object.defineProperties(Vue.prototype, {
     $: {
         get: function() {
             return $;
+        }
+    },
+    $param: {
+        get: function() {
+            return prop;
         }
     }
 });

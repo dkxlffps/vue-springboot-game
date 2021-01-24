@@ -11,7 +11,8 @@ module.exports = {
                 'Constant': path.join(__dirname, 'static/constant/'),
                 'Store': path.join(__dirname, 'src/store/'),
                 'Shared': path.join(__dirname, 'src/shared/'),
-                'Assets': path.join(__dirname, 'static/image')
+                'Assets': path.join(__dirname, 'static/image/'),
+                'Admin': path.join(__dirname, 'src/views/admin/')
             }
         },
         devtool: 'source-map'

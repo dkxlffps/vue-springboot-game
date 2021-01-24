@@ -14,7 +14,8 @@
           <b-tab v-for="(tab, index) in tabContents" :key="tab.contentKey" :title="tab.contentTitle" 
             :active="activeTabIndex == index" @click="setActiveTabIndex(index)"
             :button-id="tab.contentKey"
-          >
+          > 
+            <!-- <item-create v-if="tab.tabKey == ADMIN.MENU.ITEM.CREATE"></item-create> -->
             {{tab.contentTitle}} Content {{index}}
           </b-tab>
         </b-tabs>
@@ -25,12 +26,18 @@
 <script>
 import Sidebar from 'View/admin/Sidebar.vue';
 
+//sub Components
+// import ItemCreate from './components/item/Item_create.vue';
+
 import { ADMIN } from 'Constant/index';
 
 export default {
   name: 'AdminMain',
   components: {
     'side-var': Sidebar,
+
+    //Item
+    // 'item-create': ItemCreate,
   },
   watch: {
     tabContents() {
@@ -61,22 +68,22 @@ export default {
     }
   },
   created() {
-    this.$eventBus.$emit('showToaster', {
-      key: 'test',
-      title: '아이탬 생성 링크 테스트',
-      content: '아이템 생성으로 이동!',
-      variant: 'info',
-      destination: ADMIN.MENU.FORM.ITEM+'^'+ADMIN.MENU.ITEM.CREATE+'^아이템 생성',
-      data: 'ITEM_ID'
-    })
-    this.$eventBus.$emit('showToaster', {
-      key: 'test',
-      title: '아이탬 생성 링크 테스트',
-      content: '아이템 생성으로 이동!',
-      variant: 'info',
-      destination: ADMIN.MENU.FORM.ITEM+'^'+ADMIN.MENU.ITEM.CREATE+'^아이템 생성',
-      data: 'ITEM_ID'
-    })
+    // this.$eventBus.$emit('showToaster', {
+    //   key: 'test',
+    //   title: '아이탬 생성 링크 테스트',
+    //   content: '아이템 생성으로 이동!',
+    //   variant: 'info',
+    //   destination: ADMIN.MENU.FORM.ITEM+'^'+ADMIN.MENU.ITEM.CREATE+'^아이템 생성',
+    //   data: 'ITEM_ID'
+    // })
+    // this.$eventBus.$emit('showToaster', {
+    //   key: 'test',
+    //   title: '아이탬 생성 링크 테스트',
+    //   content: '아이템 생성으로 이동!',
+    //   variant: 'info',
+    //   destination: ADMIN.MENU.FORM.ITEM+'^'+ADMIN.MENU.ITEM.CREATE+'^아이템 생성',
+    //   data: 'ITEM_ID'
+    // })
 
     setInterval(() => {
       this.bannerIndex ++;
