@@ -6,7 +6,7 @@ const RootApi = '/api/account';
 
 const account = {
   state: {
-    userId: '',
+    userId: '1',
   },
   getters: {
     $user_id: function(state) {
