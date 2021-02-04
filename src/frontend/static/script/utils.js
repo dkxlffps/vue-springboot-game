@@ -1,4 +1,5 @@
 import { SEPERATER } from 'Constant/index';
+import prop from '../prop/properties';
 
 export function empty(_data) {
   if (_data === null) return true 
@@ -33,7 +34,8 @@ export function emptyObject(_obj , isLog) {
 export function strOptionToObject(_option) {
   return _option.split(SEPERATER.OPTION).reduce((acc,obj) => {
     let keyValue = obj.split(SEPERATER.KEY_VALUE);
-    acc[keyValue[0]] = keyValue[1];
+    acc[keyValue[0]] = prop[keyValue[0]];
+    acc[keyValue[0]].value = keyValue[1];
     return acc;
   }, {});
 }
@@ -44,5 +46,14 @@ export function objectOptionToStr(_option) {
     if(str != '') str += SEPERATER.OPTION;
     str += `${key}${SEPERATER.KEY_VALUE}${_option[key]}`;
   });
+  return str;
+}
+
+export function arrayOptionToStr(_option) {
+  let str = '';
+  _option.map(x => {
+    if(str != '') str += SEPERATER.OPTION;
+    str += `${x.key}${SEPERATER.KEY_VALUE}${x.value}`;
+  })
   return str;
 }
