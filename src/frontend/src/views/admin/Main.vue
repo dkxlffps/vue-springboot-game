@@ -16,7 +16,7 @@
             :button-id="tab.contentKey"
           > 
             <!-- <item-create v-if="tab.tabKey == ADMIN.MENU.ITEM.CREATE"></item-create> -->
-            {{tab.contentTitle}} Content {{index}}
+            <equip-create-form v-if="tab.contentKey == ADMIN.MENU.ITEM.EQUIP_CREATE" />
           </b-tab>
         </b-tabs>
       </b-card>
@@ -28,8 +28,9 @@ import Sidebar from 'View/admin/Sidebar.vue';
 
 //sub Components
 // import ItemCreate from './components/item/Item_create.vue';
+import EquipCreateForm from './components/equip/EquipCreateForm.vue';
 
-import { ADMIN } from 'Constant/index';
+import * as Constant from 'Constant/index';
 
 export default {
   name: 'AdminMain',
@@ -38,6 +39,9 @@ export default {
 
     //Item
     // 'item-create': ItemCreate,
+
+    //Equip
+    'equip-create-form': EquipCreateForm,
   },
   watch: {
     tabContents() {
@@ -98,7 +102,8 @@ export default {
   },
   data() {
     return {
-      bannerIndex: 1
+      bannerIndex: 1,
+      ADMIN: Constant.ADMIN,
     }
   }
 }

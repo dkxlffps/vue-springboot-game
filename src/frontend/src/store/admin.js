@@ -131,7 +131,7 @@ const admin = {
   },
   actions: {
     [ADMIN.SET_ACTIVE_TAB]: function({state, commit} ,payload) {
-      if(typeof payload.isOpen == undefined) payload.isOpen = true;
+      if(typeof payload.isOpen == 'undefined') payload.isOpen = true;
       if(payload.isLog) {
         console.log('%cSet Active Tab','background-color:#808080;color:#8b00ff')
         console.log(`tab : ${payload.tab}\ncontent: ${payload.content}\nisOpen: ${payload.isOpen}\nisLink: ${payload.isLink}`);

@@ -4,18 +4,18 @@
       <b-row class="my-1" v-for="n in Math.ceil(models.length / 2)" :key="'model'+n">
         <!-- left -->
         <b-col sm="2">
-          <label for="input-small">{{models[n*2].text}}</label>
+          <label for="input-small">{{models[(n-1)*2].text}}</label>
         </b-col>
-        <b-col sm="3">
-          <b-form-input id="input-default" size="sm" v-model="models[n*2].value"></b-form-input>
+        <b-col sm="1">
+          <b-form-input id="input-default" size="sm" v-model="models[(n-1)*2].value"></b-form-input>
         </b-col>
         <!-- right -->
-        <template v-if="models.length <! (n*2)+2">
+        <template v-if="models.length -1 >= (n-1)*2">
           <b-col sm="2">
-            <label for="input-small">{{models[(n*2)+1].text}}</label>
+            <label for="input-small">{{models[((n-1)*2)+1].text}}</label>
           </b-col>
-          <b-col sm="3">
-            <b-form-input id="input-default" size="sm" v-model="models[(n*2)+1].value"></b-form-input>
+          <b-col sm="1">
+            <b-form-input id="input-default" size="sm" v-model="models[((n-1)*2)+1].value"></b-form-input>
           </b-col>
         </template>
       </b-row>
@@ -34,9 +34,10 @@ export default {
   },
   watch: {
     commonOptions(_this) {
+      console.log(_this)
       if(!_this || _this.length === 0 || this.$data.models.length > 0) return;
       _this.map(x => {
-        this.models.concat({
+        this.models.push({
           key: x.value,
           text: x.text,
           value: '0', // default Value
