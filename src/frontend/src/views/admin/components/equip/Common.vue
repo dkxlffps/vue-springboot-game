@@ -1,5 +1,28 @@
 <template>
   <div>
+    <!-- Common Field -->
+    <b-container fluid>
+      <b-row>
+        <b-col sm="2">
+          <label>아이템 명</label>
+        </b-col>
+        <b-col sm="2">
+          <b-form-input id="input-default" size="sm" v-model="item_name" />
+        </b-col>
+      </b-row>
+
+      <b-row>
+        <b-col sm="2">
+          <label>아이템 명</label>
+        </b-col>
+        <b-col sm="2">
+          <b-form-input id="input-default" size="sm" v-model="item_name" />
+        </b-col>
+      </b-row>
+    </b-container>
+    <!-- Common Field -->
+
+    <!-- Common Options -->
     <b-container fluid v-if="models.length > 0">
       <b-row class="my-1" v-for="n in Math.ceil(models.length / 2)" :key="'model'+n">
         <!-- left -->
@@ -34,7 +57,6 @@ export default {
   },
   watch: {
     commonOptions(_this) {
-      console.log(_this)
       if(!_this || _this.length === 0 || this.$data.models.length > 0) return;
       _this.map(x => {
         this.models.push({
@@ -60,6 +82,10 @@ export default {
   },
   data() {
     return {
+      item_name: '',
+      sell_price: '',
+      buy_price: '',
+      
       models: [],
     }
   }
