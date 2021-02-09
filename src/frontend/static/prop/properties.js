@@ -7,6 +7,8 @@ const PROP = {
   item_rank: {category: 'ITEM', type: 'RANK'},
   equip_part: {category: 'EQUIP', type: 'PART'},
 
+  equip_type: {category: 'EQUIP', type: 'TYPE'},
+
   STR: {text:'힘', value: '', key: 'STR'},
   INT: {text:'지능', value: '', key: 'INT'},
   DEX: {text:'민첩', value: '', key: 'DEX'},

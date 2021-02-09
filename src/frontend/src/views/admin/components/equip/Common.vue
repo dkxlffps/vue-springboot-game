@@ -7,16 +7,22 @@
           <label>아이템 명</label>
         </b-col>
         <b-col sm="2">
-          <b-form-input id="input-default" size="sm" v-model="item_name" />
+          <b-form-input size="sm" v-model="item_name" />
         </b-col>
       </b-row>
 
       <b-row>
         <b-col sm="2">
-          <label>아이템 명</label>
+          <label>상점 구매가</label>
         </b-col>
         <b-col sm="2">
-          <b-form-input id="input-default" size="sm" v-model="item_name" />
+          <b-form-input size="sm" v-model="buy_price" />
+        </b-col>
+        <b-col sm="2">
+          <label>상점 판매가</label>
+        </b-col>
+        <b-col sm="2">
+          <b-form-input size="sm" v-model="sell_price" />
         </b-col>
       </b-row>
     </b-container>
@@ -30,7 +36,7 @@
           <label for="input-small">{{models[(n-1)*2].text}}</label>
         </b-col>
         <b-col sm="1">
-          <b-form-input id="input-default" size="sm" v-model="models[(n-1)*2].value"></b-form-input>
+          <b-form-input size="sm" v-model="models[(n-1)*2].value"></b-form-input>
         </b-col>
         <!-- right -->
         <template v-if="models.length -1 >= (n-1)*2">
@@ -38,7 +44,7 @@
             <label for="input-small">{{models[((n-1)*2)+1].text}}</label>
           </b-col>
           <b-col sm="1">
-            <b-form-input id="input-default" size="sm" v-model="models[((n-1)*2)+1].value"></b-form-input>
+            <b-form-input size="sm" v-model="models[((n-1)*2)+1].value"></b-form-input>
           </b-col>
         </template>
       </b-row>

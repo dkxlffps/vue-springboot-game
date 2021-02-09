@@ -53,6 +53,6 @@ export default {
         { text: '장비', value:'EQUIP'}
       ],
     }
-  }
+  } 
 }
 </script>
