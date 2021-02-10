@@ -1,10 +1,15 @@
 <template>
   <div>
-    <common-option :commonOption="setCommonOption" />
+    <common-option :commonForm="setCommonForm" />
+
+    <b-button @click="submit">생성 완료</b-button>
+    <b-button @click="viewSample">미리보기</b-button>
   </div>
 </template>
 <script>
 import commonOption from './Common.vue';
+
+import { ADMIN_ITEM } from 'Constant/index';
 
 import * as UTIL from 'Script/utils';
 
@@ -17,13 +22,21 @@ export default {
     
   },
   methods: {
-    setCommonOption(models) {
-      this.equipOption = UTIL.arrayOptionToStr(models);
+    setCommonForm(_data) {
+      this.form = _data;
+    },
+    submit() {
+      
+    },
+    viewSample() {
+      if(!this.form) return;
+
+      this.$store.commit(ADMIN_ITEM.SET_EQUIP_SAMPLE , [this.form]);
     }
   },
   data() {
     return {
-      equipOption: '',
+      form: null,
     }
   }
 }

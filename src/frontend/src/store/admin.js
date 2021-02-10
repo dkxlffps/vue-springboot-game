@@ -95,7 +95,6 @@ const admin = {
     [ADMIN.DELETE_TAB]: (state,payload) => {
       let index = state.tabContents.findIndex(x => x.contentKey == payload);
       let target;
-      console.log(index, state.tabContents.length)
       if(state.tabContents.length == 1) { // 삭제후 홈만 남을 경우
         state.activeTab = {
           tab: '',

@@ -13,18 +13,42 @@
 
       <b-row>
         <b-col sm="2">
+          <label>아이템 설명</label>
+        </b-col>
+        <b-col sm="4">
+          <b-form-textarea
+            placeholder="설명이 없을시 공백으로 표시됩니다."
+            rows="3"
+            no-resize
+            v-model="item_desc"
+          ></b-form-textarea>
+        </b-col>
+      </b-row>
+
+      <b-row>
+        <b-col sm="2">
           <label>상점 구매가</label>
         </b-col>
         <b-col sm="2">
-          <b-form-input size="sm" v-model="buy_price" />
+          <b-form-input size="sm" v-model="buy_price" type="number" />
         </b-col>
         <b-col sm="2">
           <label>상점 판매가</label>
         </b-col>
         <b-col sm="2">
-          <b-form-input size="sm" v-model="sell_price" />
+          <b-form-input size="sm" v-model="sell_price" type="number" />
         </b-col>
       </b-row>
+
+      <b-row>
+        <b-col sm="2">
+          <label>최대 강화 횟수</label>
+        </b-col>
+        <b-col sm="2">
+          <b-form-input size="sm" type="number" v-model="max_upgrade" />
+        </b-col>
+      </b-row>
+
     </b-container>
     <!-- Common Field -->
 
@@ -73,7 +97,7 @@ export default {
       })
     },
     models() {
-      this.$emit('commonOption',this.models);
+      this.$emit('commonForm',this.$data);
     }
   },
   created() {
@@ -89,9 +113,11 @@ export default {
   data() {
     return {
       item_name: '',
+      item_desc: '',
       sell_price: '',
       buy_price: '',
       
+      max_upgrade: 5, //default
       models: [],
     }
   }

@@ -4,11 +4,6 @@ export const ACCOUNT = {
   COOKIE_CHECK: 'account/cookieCheck'
 }
 
-export const ITEM = {
-  CREATE_ITEM: 'item/createItem',
-  CREATE_SET_ITEM: 'item/createSetItem'
-}
-
 export const COMMON = {
   GET_COMMON_CODE: 'common/getCommonCode',
   equipTypes: 'common/equipTypes',
@@ -56,3 +51,10 @@ export const ADMIN = {
     }
   }
 };
+
+export const ADMIN_ITEM = {
+  // EQUIP
+  SET_EQUIP_SAMPLE: 'admin_item/setEquipSample',
+
+  // ITEM
+}
