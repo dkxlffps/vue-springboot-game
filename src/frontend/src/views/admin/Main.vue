@@ -5,11 +5,11 @@
       <b-card no-body>
         <b-tabs card>
           <b-tab :title="'메인'" @click="setActiveTabIndex(-1)" :active="activeTabIndex == -1">
-              <div style="width: 100%; height: 840px">
-                <transition-group>
-                  <img v-for="index in 5" :style="`width: 95%; height: 100%; position:absolute; left:35px; opacity: ${bannerIndex == index? 1:0}; transition-duration:.4s; margin-bottom: 35px; overflow: hidden;`" :key="index" :src="require('Assets/home/'+index+'.jpg')"/>
-                </transition-group>
-              </div>
+            <div style="width: 100%; height: 840px;">
+              <transition-group>
+                <img v-for="index in 5" :style="`width: 95%; height: 100%; position:absolute; left:35px; opacity: ${bannerIndex == index? 1:0}; transition-duration:.4s; margin-bottom: 35px; overflow: hidden;`" :key="index" :src="require('Assets/home/'+index+'.jpg')"/>
+              </transition-group>
+            </div>
           </b-tab>
           <b-tab v-for="(tab, index) in tabContents" :key="tab.contentKey" :title="tab.contentTitle" 
             :active="activeTabIndex == index" @click="setActiveTabIndex(index)"
@@ -28,7 +28,7 @@ import Sidebar from 'View/admin/Sidebar.vue';
 
 //sub Components
 // import ItemCreate from './components/item/Item_create.vue';
-import EquipCreateForm from './components/equip/EquipCreateForm.vue';
+import EquipCreateForm from './components/equip/equip_main.vue';
 
 import * as Constant from 'Constant/index';
 

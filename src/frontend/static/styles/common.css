@@ -31,7 +31,7 @@ footer, header, hgroup, menu, nav, section {
 }
 a{
 	text-decoration: none;
-	color: white !important;
+	color: white;
 }
 a:hover{
 	text-decoration: none;
@@ -39,6 +39,7 @@ a:hover{
 }
 body {
 	line-height: 1;
+	overflow-x: hidden;
 }
 ol, ul ,dl{
 	list-style: none;
@@ -46,6 +47,9 @@ ol, ul ,dl{
 }
 blockquote, q {
 	quotes: none;
+}
+button {
+	margin-left: 10px;
 }
 blockquote:before, blockquote:after,
 q:before, q:after {

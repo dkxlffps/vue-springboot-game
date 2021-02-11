@@ -3,9 +3,17 @@
   background-color: black;
 }
 
-.adminContainer .adminContent * {
+.adminContainer .tab-content {
   color: #202020 !important;
-  overflow: hidden;
+  position: relative;
+}
+
+.adminContainer label {
+  position: relative;
+}
+
+.adminContainer img {
+  object-fit: contain;
 }
 
 .adminContainer .MenuBtn {
@@ -51,6 +59,9 @@
   background-color: gray;
 }
 
+.adminContainer .min-height {
+  min-height: 500px;
+}
 
 
 /* Toast */
@@ -88,4 +99,16 @@ a.closeBtn:hover {
 .nav-tabs li:first-child a {
   padding-right: 1rem !important;
   transition-duration: .2s;
+}
+
+li.nav-item a {
+  color: #202020 !important;
+}
+
+ul.dropdown-menu > li > a{
+  color: #202020;
+}
+
+.row {
+  margin-bottom: 15px;
 }

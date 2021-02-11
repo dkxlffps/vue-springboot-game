@@ -2,7 +2,7 @@ import Vue from "vue";
 import Vuex from "vuex";
 
 import account from 'Store/account';
-import item from 'Store/admin_item';
+import admin_item from 'Store/admin_item';
 import common from 'Store/common';
 import character from 'Store/character';
 import admin from 'Store/admin';
