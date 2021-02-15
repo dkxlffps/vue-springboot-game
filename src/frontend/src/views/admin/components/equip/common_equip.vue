@@ -56,11 +56,27 @@
         <b-col sm="1">
           <b-form-input size="sm" type="number" v-model="max_upgrade" />
         </b-col>
+      </b-row>
+      <b-row>
+        <b-col sm="2">
+          <label>성장 가능 옵션</label>
+        </b-col>
+        <b-col>
+          <b-form-checkbox-group
+            v-model="availableOptions"
+            :options="options"
+            class="mb-3"
+            value-field="item"
+            text-field="name"
+            disabled-field="notEnabled"
+          ></b-form-checkbox-group>
+        </b-col>
+      </b-row>
+      <b-row>
         <b-col sm="3">
           <b-button @click="upgradeOptionCalculation">강화 확률 및 추가옵션 계산</b-button>
         </b-col>
       </b-row>
-
     </b-container>
     <!-- Common Field -->
 
@@ -99,6 +115,8 @@
 <script>
 import { COMMON } from 'Constant/index';
 
+import { setDefaultUpgradeOptions } from 'Script/upgrade';
+
 export default {
   name: 'commonOption',
   computed: {
@@ -136,7 +154,7 @@ export default {
       this.$store.commit(ADMIN_ITEM.SET_EQUIP_SAMPLE , [this.form]);
     },
     upgradeOptionCalculation() {
-      this.upgradeForms
+      // this.upgradeForms = 
     }
   },
   data() {
@@ -147,6 +165,26 @@ export default {
       sell_price: 0,
       buy_price: 0,
       
+      availableOptions_selected: [],
+      availableOptions_checkList: [
+        {
+          name: '힘(STR)',
+          item: {
+            key: 'STR',
+            title: '힘',
+          }
+        },
+        {
+          name: '지능(INT)',
+        },
+        {
+          name: '민첩(DEX)',
+        },
+        {
+          name: '행운(LUCK)',
+        },
+      ],
+
       upgradeForms: [],
 
       max_upgrade: 5, //default
