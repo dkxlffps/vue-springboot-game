@@ -63,8 +63,8 @@
         </b-col>
         <b-col>
           <b-form-checkbox-group
-            v-model="availableOptions"
-            :options="options"
+            :options="availableOptions_checkList"
+            v-model="availableOptions_selected"
             class="mb-3"
             value-field="item"
             text-field="name"
@@ -154,7 +154,8 @@ export default {
       this.$store.commit(ADMIN_ITEM.SET_EQUIP_SAMPLE , [this.form]);
     },
     upgradeOptionCalculation() {
-      // this.upgradeForms = 
+      // validation
+      this.upgradeForms = setDefaultUpgradeOptions();
     }
   },
   data() {
