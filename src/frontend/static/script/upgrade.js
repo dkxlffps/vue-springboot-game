@@ -49,15 +49,13 @@ export function setDefaultUpgradeOptions(rank , limit_level ,availableOptions , 
   }
   
   let result = [];
-  availableOptions.forEach(option => {
+  return availableOptions.forEach(option => {
     result.push({
       key: option.key,
       text: option.title,
-
+      data: excuteCalculation(start_value , growth_rate , max_upgrade_count)
     })
-  })
-
-  returnexcuteCalculation(start_value , growth_rate , max_upgrade_count);
+  });
 }
 
 function excuteCalculation(start_value ,growth_rate, limit) {
